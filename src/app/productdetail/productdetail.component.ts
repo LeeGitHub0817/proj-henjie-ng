@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { ProductService } from "../services/product.service";
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-productdetail',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductdetailComponent implements OnInit {
 
-  constructor() { }
+  productId:any;//产品ID
+  productDetail:any;
 
-  ngOnInit() {
+  constructor(private httpProDetail:ProductService, private proParam:ActivatedRoute) { }
+  ngOnChanges(){
+    
   }
-
+  ngOnInit() {
+    this.proParam.params.subscribe((data:any)=>{
+      this.productId = data.pid;
+      this.loadProDetail();
+    })
+  }
+  ngAfterContentInit(){
+    
+  }
+  loadProDetail(){
+    this.httpProDetail.selectProDetail(this.productId).subscribe((data:any)=>{
+      console.log(data);
+      this.productDetail = data[0];
+      $(".pd_details").append(data[0].detail);
+    })
+  }
 }
