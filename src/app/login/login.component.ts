@@ -56,8 +56,8 @@ export class LoginComponent implements OnInit {
         sessionStorage.uid= data.uid;
         sessionStorage.uname= data.uname;
         // this.router.navigateByUrl("/");
-        // history.go(-1);
-        location.href = "/";
+        history.go(-1);
+        // location.href = "/";
       }
     });
   }

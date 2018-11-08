@@ -54,6 +54,7 @@ export class HeaderComponent implements OnInit {
   //加载购物车
   loadCart(){
     this.cartLoadHttp.cart_load(this.uid).subscribe((data:any)=>{
+      console.log(data)
       this.cartProduct = data.product;
       for(var i = 0; i < data.product.length; i++){
         this.priceSum += data.product[i].price;

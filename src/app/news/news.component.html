@@ -1,3 +1,4 @@
+<app-header></app-header>
 <!--面包屑导航-->
 <div class="breadcrumb">
   <div class="container">
@@ -9,12 +10,12 @@
 <!--页面主体-->
 <div class="main container">
   <div class="news">
-    <ul>
-      <!--<li><span>2016-02-21</span><a href="">空气净化器要逆天？ “玫瑰金”“土豪金”齐上阵</a></li>-->
-      <!--<li><span>2016-02-21</span><a href="">净美仕新风净化系统　助力校园新风行动</a></li>-->
-      <!--<li><span>2016-02-21</span><a href="">全国新风行动全面启动 助推净美仕战略升级</a></li>-->
-      <!--<li><span>2016-02-21</span><a href="">智能空气净化器翻盘：净美仕能否领衔?</a></li>-->
-    </ul>
+    <ng-container *ngIf="newsListData">
+     <ul>
+      <li *ngFor="let item of newsListData"><span>2016-02-21</span><a [routerLink]="'/newsdetail/'+item.nid">{{ item.title }}</a></li>
+    </ul> 
+    </ng-container>
+    
   </div>
   <!-- 分页导航-->
   <div class="pages">
@@ -27,3 +28,4 @@
     <!--<a href="">下一页</a>-->
   </div>
 </div>
+<app-footer></app-footer>

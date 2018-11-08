@@ -9,7 +9,8 @@ import * as $ from "jquery";
 export class NewsComponent implements OnInit {
 
   pageC:any;
-  pageCur:any = 1;
+  pageCur:any = 1;//当前页码
+  newsListData:any;
   constructor() { }
 
   ngOnInit() {
@@ -56,12 +57,13 @@ export class NewsComponent implements OnInit {
           var data= d.data;
           var n= data.length;
           //console.log(n);
-          var htmlText="";
-          for(var i=0;i<n;i++){
-              var t=that.dateFormat(parseInt(data[i].pubTime));
-              htmlText+='<li><span>'+t+'</span><a href="news_details.html?nid='+data[i].nid+'">'+data[i].title+'</a></li>';
-          }
-          $(".news>ul").html(htmlText);
+          that.newsListData = d.data;
+          // var htmlText="";
+          // for(var i=0;i<n;i++){
+          //     var t=that.dateFormat(parseInt(data[i].pubTime));
+          //     htmlText+='<li><span>'+t+'</span><a routerLink="newsdetail/'+data[i].nid+'">'+data[i].title+'</a></li>';
+          // }
+          // $(".news>ul").html(htmlText);
 
           //动态添加页码
           var pageHtml='<a href="prev">上一页</a>';

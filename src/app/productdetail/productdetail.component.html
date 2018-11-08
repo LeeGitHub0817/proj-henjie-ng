@@ -1,3 +1,4 @@
+<app-header></app-header>
 <!--面包屑导航-->
 <div class="breadcrumb">
   <div class="container">
@@ -8,32 +9,32 @@
 </div>
 <!--页面主体-->
 <div class="main container">
-  <ng-container *ngIf="productDetail">
-    <div class="pd_info clearfloat">
-        <div class="pdinfo_img">
-          <img [src]="productDetail.pic" alt=""/>
-        </div>
-        <div class="pdinfo_text">
-          <h2>{{productDetail.title1}}</h2>
-          <ul>
-            <li>型号：{{ productDetail.model }}</li>
-            <li>功能：{{ productDetail.func }}</li>
-            <li>噪音：{{productDetail.noise}}</li>
-            <li>风量：{{productDetail.wind}}</li>
-            <li>适用对象：{{productDetail.applyTo}}</li>
-            <li>适用面积：{{productDetail.size}}</li>
-            <li>空气净化能效等级：{{productDetail.level}}</li>
-          </ul>
-          <p>价格：<span>¥</span><strong id="price">{{ productDetail.price }}</strong></p>
-          <a href="" id="addCart"><span class="icon_cart"></span>加入购物车</a>
-        </div>
-      </div>
-      
-  </ng-container>
+  <ng-container *ngIf="productData">
+  <div class="pd_info clearfloat">
+    <div class="pdinfo_img">
+      <img [src]="productData.pic" alt=""/>
+    </div>
+    <div class="pdinfo_text">
+      <h2>{{ productData.title1 }}</h2>
+      <ul>
+        <li>品牌：{{ productData.model }}</li>
+        <li>名称：{{ productData.func }}</li>
+        <li>商品编号：{{productData.noise}}</li>
+        <li>店铺：{{productData.wind}}</li>
+        <li>商品毛重：{{productData.applyTo}}</li>
+        <li>类别：{{productData.size}}</li>
+        <li>材质：{{productData.level}}</li>
+      </ul>
+      <p>价格：<span>¥</span><strong id="price">{{ productData.price }}</strong></p>
+      <a href="" id="addCart" (click)="addCart($event)"><span class="icon_cart"></span>加入购物车</a>
+    </div>
+  </div>
   <div class="details_box">
     <h2 class="title">产品详情</h2>
-    <div class="pd_details">
+    <div class="pd_details" [innerHTML]="productDetail">
       
     </div>
   </div>
+  </ng-container>
 </div>
+<app-footer></app-footer>

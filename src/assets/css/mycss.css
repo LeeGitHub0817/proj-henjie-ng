@@ -227,9 +227,14 @@
 .pdlist_text>h3 {
     float: left;
     font-weight: lighter;
+    width: 100%;
 }
 .pdlist_text>h3>p {
     font-size: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
 }
 .pdlist_text>h3>span {
     font-size: 14px;
