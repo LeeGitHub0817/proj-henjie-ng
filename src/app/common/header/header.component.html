@@ -41,28 +41,56 @@
             <li><a routerLink="/contact">联系我们</a></li>
           </ul>
         </div>
-        <div class="s_cart">
-          <a routerLink="cart">
+        <div class="s_cart" *ngIf="!reloadCartData; else showReload">
+          <a routerLink="/cart">
             <span class="icon_cart"></span>购物车(<strong id="cart_sum">{{ totalCount }}</strong>)<span class="icon_sj"></span>
           </a>
           <div class="cart_dropdown">
-            <!--<h3>您的购物车为空~</h3>-->
-            <ul>
-              <li *ngFor="let item of cartProduct">
-                <a href=""><img [src]="item.pic" alt=""/></a>
-                <div>
-                  <span>-</span><input type="text" [value]="item.count"/><span>+</span>
-                </div>
-                <strong>{{ item.price }}</strong>
-                <em></em>
-              </li>
-            </ul>
-            <div class="cd_js clearfloat" style="display: block;">
-              <span>共计：<strong>{{ priceSum }}</strong></span>
-              <a href="#">结算</a>
-            </div>
+            <h3 *ngIf="isLogin; else notEmpty">您的购物车为空~</h3>
+            <ng-template #notEmpty>
+              <ul>
+                <li *ngFor="let item of cartProduct">
+                  <a href=""><img [src]="item.pic" alt=""/></a>
+                  <div>
+                    <span>-</span><input type="text" [value]="item.count"/><span>+</span>
+                  </div>
+                  <strong>{{ item.price }}</strong>
+                  <em></em>
+                </li>
+              </ul>
+              <div class="cd_js clearfloat" style="display: block;">
+                <span>共计：<strong>{{ priceSum }}</strong></span>
+                <a href="#">结算</a>
+              </div>
+            </ng-template>
           </div>
         </div>
+        <ng-template #showReload>
+          <div class="s_cart">
+            <a routerLink="/cart">
+              <span class="icon_cart"></span>购物车(<strong id="cart_sum">{{ reloadTotalCount }}</strong>)<span class="icon_sj"></span>
+            </a>
+            <div class="cart_dropdown">
+              <h3 *ngIf="isLogin; else notEmpty">您的购物车为空~</h3>
+              <ng-template #notEmpty>
+                <ul>
+                  <li *ngFor="let item of reloadCartData">
+                    <a href=""><img [src]="item.pic" alt=""/></a>
+                    <div>
+                      <span>-</span><input type="text" [value]="item.count"/><span>+</span>
+                    </div>
+                    <strong>{{ item.price }}</strong>
+                    <em></em>
+                  </li>
+                </ul>
+                <div class="cd_js clearfloat" style="display: block;">
+                  <span>共计：<strong>{{ reloadPriceSum }}</strong></span>
+                  <a href="#">结算</a>
+                </div>
+              </ng-template>            
+            </div>
+          </div> 
+        </ng-template>
       </div>
     </nav>
 </div>

@@ -61,7 +61,7 @@ const routes = [
   ],
   providers: [
     ProductService,
-    UserService
+    UserService,
   ],
   bootstrap: [AppComponent]
 })

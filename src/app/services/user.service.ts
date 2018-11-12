@@ -10,6 +10,7 @@ export class UserService{
   URL_LOGIN = "http://localhost:3000/user/login";
   URL_REGISTER = "http://localhost:3000/user/register";
   URL_CARTLOAD = "http://localhost:3000/cart/select";
+  URL_DELETE = "http://localhost:3000/cart/delete";
 
   constructor(private httpUser:HttpClient){
 
@@ -32,5 +33,9 @@ export class UserService{
   //加载购物车
   cart_load(uid){
     return this.httpUser.get(this.URL_CARTLOAD+"?uid="+uid);
+  }
+  //删除产品
+  delete_product(did){
+    return this.httpUser.get(this.URL_DELETE+"?did="+did);
   }
 }

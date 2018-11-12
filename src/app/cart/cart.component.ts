@@ -34,4 +34,11 @@ export class CartComponent implements OnInit {
       console.log(this.priceSum)
     });
   }
+  //删除产品
+  deletePro(did){
+    this.cartLoadHttp.delete_product(did).subscribe((data:any)=>{
+      console.log(data);
+      this.loadCart();
+    })
+  }
 }

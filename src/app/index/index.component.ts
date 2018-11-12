@@ -15,7 +15,7 @@ export class IndexComponent implements OnInit {
     function carousel(){
       var number=$(".banner ul li").length-1;//图片的数量
       var cur=0;//当前显示的图片
-      var timer=0;//定时器
+      var timer:any=0;//定时器
 
       //下一个
       function slideNext(){
