@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   pwdCheck(){
     var pwd= $.trim($("#pwd").val().toString());
     if(!pwd){//密码为空的时候
-        $("#pwd_prompt_text").show().text("用户名不能为空");
+        $("#pwd_prompt_text").show().text("密码不能为空");
         $("#pwd_prompt_icon").show();
         return false;
     }else{

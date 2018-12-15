@@ -9,9 +9,9 @@ import { ProductService } from "../services/product.service";
 })
 export class ProductComponent implements OnInit {
   //设置相关参数
-  type:any = 1;//产品类型
-  pageNum:any = 1;//第几页
-  pageC:any[] = [];//页数
+  type:any = 1; //产品类型
+  pageNum:any = 1; //第几页
+  pageC:any[] = []; //页数
   products:any; //数据
   wash:any = true; //洗漱产品
   shower:any = false; //淋浴产品

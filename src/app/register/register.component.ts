@@ -60,7 +60,7 @@ export class RegisterComponent implements OnInit {
         $("#uname").siblings("em").show().attr("class","icon_error");
         $("#uname").siblings("i").show().text("请输入您的注册邮箱");
         return false;
-    }else if(!regEmail.test(uname)){
+    }else if(!regEmail.test(uname)){ 
         $("#uname").siblings("em").show().attr("class","icon_error");
         $("#uname").siblings("i").show().text("请输入正确的邮箱格式");
         return false;
