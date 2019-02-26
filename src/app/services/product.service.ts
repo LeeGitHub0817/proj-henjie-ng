@@ -6,10 +6,10 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ProductService {
 
-  URL_PRODUCT = "http://localhost:3000/product";
-  URL_PRO_DETAIL = "http://localhost:3000/productdetail/detail";
-  URL_BUY_PRODUCT = "http://localhost:3000/cart/add";
-  URL_NEWS_DETAIL = "http://localhost:3000/news/detail";
+  URL_PRODUCT = "http://45.32.162.42:3000/product";
+  URL_PRO_DETAIL = "http://45.32.162.42:3000/productdetail/detail";
+  URL_BUY_PRODUCT = "http://45.32.162.42:3000/cart/add";
+  URL_NEWS_DETAIL = "http://45.32.162.42:3000/news/detail";
 
   constructor(private httpPro:HttpClient) { }
 

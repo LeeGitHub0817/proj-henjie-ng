@@ -7,10 +7,10 @@ import { HttpClient } from "@angular/common/http";
 
 export class UserService{
   
-  URL_LOGIN = "http://localhost:3000/user/login";
-  URL_REGISTER = "http://localhost:3000/user/register";
-  URL_CARTLOAD = "http://localhost:3000/cart/select";
-  URL_DELETE = "http://localhost:3000/cart/delete";
+  URL_LOGIN = "http://45.32.162.42:3000/user/login";
+  URL_REGISTER = "http://45.32.162.42:3000/user/register";
+  URL_CARTLOAD = "http://45.32.162.42:3000/cart/select";
+  URL_DELETE = "http://45.32.162.42:3000/cart/delete";
 
   constructor(private httpUser:HttpClient){
 

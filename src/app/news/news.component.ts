@@ -48,7 +48,7 @@ export class NewsComponent implements OnInit {
     var that = this;
     $.ajax({
       type:"get",
-      url:"http://localhost:3000/news/list",
+      url:"http://45.32.162.42:3000/news/list",
       data:{pageNum:pageCur},
       success:function(d){
           //console.log(d);
